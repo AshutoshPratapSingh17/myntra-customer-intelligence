@@ -2,7 +2,7 @@
 
 > An end-to-end customer review analytics platform built with Python, NLP, SQLite, and Streamlit.
 
-🔗 **Live Demo:** [Click here to view dashboard](YOUR_STREAMLIT_URL_HERE)
+🔗 **Live Demo:** [Click here to view dashboard](https://myntra-customer-intelligence-fbtktg6v9bcesxxsglpmqk.streamlit.app/)
 
 ![Dashboard Preview](https://img.shields.io/badge/Status-Live-brightgreen)
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
