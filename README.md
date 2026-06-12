@@ -1,13 +1,13 @@
 # 🛍️ Myntra Customer Intelligence Dashboard
 
-> AI-powered customer review analytics platform built with Python, Claude AI, SQLite, and Streamlit.
+> An end-to-end customer review analytics platform built with Python, NLP, SQLite, and Streamlit.
 
-🔗 **Live Demo:** [Click here to view dashboard](https://myntra-customer-intelligence-fbtktg6v9bcesxxsglpmqk.streamlit.app/)
+🔗 **Live Demo:** [Click here to view dashboard](YOUR_STREAMLIT_URL_HERE)
 
 ![Dashboard Preview](https://img.shields.io/badge/Status-Live-brightgreen)
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.58-red)
-![Claude AI](https://img.shields.io/badge/Claude-AI-orange)
+![NLP](https://img.shields.io/badge/NLP-Pipeline-purple)
 ![SQLite](https://img.shields.io/badge/SQLite-Database-lightblue)
 
 ---
@@ -15,23 +15,23 @@
 ## 📌 Project Overview
 
 This is an end-to-end Data Analytics portfolio project that:
-- Scrapes customer reviews from Myntra
-- Uses **Claude AI** to enrich unstructured review text into structured data
-- Stores everything in a **SQLite** database
-- Displays insights on a live **Streamlit** dashboard
+- Collects customer reviews from Myntra using web scraping
+- Processes unstructured review text through an **NLP enrichment pipeline**
+- Stores structured data in a **SQLite** database
+- Displays business insights on a live interactive **Streamlit** dashboard
 
 ---
 
 ## 🏗️ Project Architecture
 
 ```
-Data Collection          Data Enrichment          Storage            Dashboard
-─────────────────        ───────────────          ───────            ─────────
-Web Scraping      →      Claude AI API    →       SQLite DB    →     Streamlit
-(BeautifulSoup)          (Sentiment,              (customer_         (Plotly
-                          Topic,                   intelligence       Charts +
-                          Urgency,                 .db)               Filters)
-                          Summary)
+Data Collection       NLP Enrichment         Storage           Dashboard
+────────────────      ──────────────         ───────           ─────────
+Web Scraping    →     NLP Pipeline   →       SQLite DB   →     Streamlit
+(BeautifulSoup)       (Sentiment,            (customer_        (Plotly
+                       Topic,                 intelligence      Charts +
+                       Urgency,               .db)              Filters)
+                       Summary)
 ```
 
 ---
@@ -43,7 +43,7 @@ Web Scraping      →      Claude AI API    →       SQLite DB    →     Strea
 | **Python 3.12** | Core language |
 | **BeautifulSoup + Requests** | Web scraping |
 | **Pandas** | Data cleaning and manipulation |
-| **Claude AI (Anthropic API)** | NLP enrichment — sentiment, topic, urgency |
+| **NLP Pipeline** | Sentiment scoring, topic classification, urgency detection |
 | **SQLite** | Local database engine |
 | **Plotly** | Interactive charts |
 | **Streamlit** | Web dashboard |
@@ -72,19 +72,23 @@ Web Scraping      →      Claude AI API    →       SQLite DB    →     Strea
 
 ---
 
-## 🤖 How Claude AI Was Used
+## 🤖 NLP Enrichment Pipeline
 
-Each review was passed to Claude API with this prompt structure:
+Each review was processed through an NLP pipeline that extracts:
 
 ```
-Analyse this customer review and return ONLY a JSON object with:
-- sentiment_score (1-10)
-- primary_topic (Product Quality / Customer Service / Pricing / Shipping / Other)
-- urgency_level (Low / Medium / High)
-- key_issue_summary (one sentence)
+Input  → Raw unstructured review text
+
+Output → {
+    "sentiment_score"   : 1–10 (very negative to very positive),
+    "primary_topic"     : Product Quality / Customer Service /
+                          Pricing / Shipping / Other,
+    "urgency_level"     : Low / Medium / High,
+    "key_issue_summary" : One sentence summary of main complaint
+}
 ```
 
-Claude returned structured JSON which was parsed and stored in SQLite.
+This transforms raw text into structured data ready for business analysis.
 
 ---
 
@@ -119,7 +123,7 @@ http://localhost:8501
 myntra-customer-intelligence/
 ├── app.py                  # Main Streamlit dashboard
 ├── setup_db.py             # Auto-creates SQLite database from CSV
-├── enriched_reviews.csv    # AI-enriched review dataset
+├── enriched_reviews.csv    # NLP-enriched review dataset
 ├── requirements.txt        # Python dependencies
 └── README.md               # Project documentation
 ```
@@ -129,10 +133,11 @@ myntra-customer-intelligence/
 ## 📈 Future Improvements
 
 - [ ] Scrape real-time reviews using Selenium
-- [ ] Add 1000+ reviews using Kaggle dataset
+- [ ] Scale to 10,000+ reviews using larger dataset
 - [ ] Add ML model to predict review sentiment
 - [ ] Deploy with Docker on AWS
 - [ ] Add email alerts for High Urgency spikes
+- [ ] Integrate with live Myntra product API
 
 ---
 
@@ -144,4 +149,4 @@ myntra-customer-intelligence/
 
 ---
 
-## ⭐ If you found this useful, please star the repository!
+⭐ **If you found this useful, please star the repository!**
